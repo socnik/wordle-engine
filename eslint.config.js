@@ -26,6 +26,14 @@ export default ts.config(
     name: 'TypeScript files',
     extends: ts.configs.recommended,
     files: ['src/**/*.ts', 'vite.config.ts', 'vitest.config.ts'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
   },
   // TODO: add eslint plugin for vitest tests
   // {

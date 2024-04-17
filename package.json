@@ -51,6 +51,7 @@
     "@vue/tsconfig": "^0.5.1",
     "concurrently": "^8.2.2",
     "dts-bundle-generator": "^9.4.0",
+    "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vitest": "^0.5.3",
     "globals": "^15.0.0",
