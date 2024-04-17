@@ -74,6 +74,18 @@ export class WordleEngine {
     return row.map((state) => state.letter).join('')
   }
 
+  getDiffState(line: number): LetterGuessingState[] {
+    if (line >= this.cursorPosition.y) {
+      throw new Error(
+        'Cannot get diff, if line index equal or greater than cursor y'
+      )
+    }
+
+    const row = this.boardState[line]
+
+    return row.map((state) => state.guessingState)
+  }
+
   enterWord() {
     const word = this.getWord()
 
