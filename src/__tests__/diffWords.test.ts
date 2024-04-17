@@ -1,4 +1,4 @@
-import { diffWords } from '../index'
+import { diffWords } from '@/diffWords'
 
 describe('diffWords function', () => {
   describe('diff two words', () => {
