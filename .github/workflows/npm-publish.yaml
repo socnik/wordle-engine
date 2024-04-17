@@ -1,0 +1,28 @@
+name: Npm Package Publish
+run-name: Npm Package Publish
+on:
+  release:
+    types: [released]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: 0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.12.0'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v2.4.0
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
+      - name: Publish!
+        run: pnpm publish --tag latest --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
