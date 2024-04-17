@@ -68,8 +68,8 @@ export class WordleEngine {
     this.cursorPosition.x = this.boardWidth
   }
 
-  getWord(): string {
-    const row = this.boardState[this.cursorPosition.y]
+  getWord(line?: number): string {
+    const row = this.boardState[line ?? this.cursorPosition.y]
 
     return row.map((state) => state.letter).join('')
   }
