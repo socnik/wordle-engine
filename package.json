@@ -1,6 +1,6 @@
 {
   "name": "@socnik/wordle-engine",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Implementation of Wordle game engine with JavaScript",
   "license": "MIT",
   "scripts": {
