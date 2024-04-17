@@ -2,6 +2,13 @@
 
 Implementation of Wordle game engine with JavaScript.
 
+## Installation
+
+```bash
+pnpm add @socnik/wordle-engine # Pnpm
+npm install @socnik/wordle-engine # Npm
+```
+
 ## Docs
 
 ### Tiles state
