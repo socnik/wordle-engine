@@ -61,5 +61,8 @@
     "tsc-alias": "^1.8.8",
     "typescript": "^5.4.4",
     "typescript-eslint": "^7.7.0"
+  },
+  "dependencies": {
+    "@socnik/randifyjs": "^0.0.2"
   }
 }

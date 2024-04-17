@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  '@socnik/randifyjs':
+    specifier: ^0.0.2
+    version: 0.0.2
+
 devDependencies:
   '@socnik/my-prettier-config':
     specifier: ^1.0.0
@@ -504,6 +509,11 @@ packages:
     resolution: {integrity: sha512-F9uyvMH5RoUHEE7DLr2qAsDwuUIrfIs2TPX9fQwyq80/UTP7kALVPQQsJXjWSFpnkylfBmhSnl4lApKjjkvpqg==}
     engines: {node: '>=18.0.0'}
     dev: true
+
+  /@socnik/randifyjs@0.0.2:
+    resolution: {integrity: sha512-jBpRIvW0zpg/hiWt0+sjT7b2MyojqZirfhpSfUfTkREpwFUTbxYaLFPduoyqIZD/drZmG5RjlAolCEgQLK4xCA==}
+    engines: {node: '>=18.0.0'}
+    dev: false
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
