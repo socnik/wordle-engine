@@ -11,7 +11,7 @@ npm install @socnik/wordle-engine # Npm
 
 ## Docs
 
-### Tiles state
+### Tile state
 
 Core type of this library - `LetterGuessingState`. It represents color of tile in Wordle game.
 
@@ -26,9 +26,29 @@ Core type of this library - `LetterGuessingState`. It represents color of tile i
 type LetterGuessingState = 'none' | 'almost' | 'right' | 'wrong'
 ```
 
+### Board API
+
+Allows create Wordle game board state.
+
+#### `defineBoard`
+
+Create new board with specified size. Board state - 2D matrix with tile state objects. Tile state have two properties:
+
+- `letter` - tile letter
+- `guessingState` - one value from `LetterGuessingState` type.
+
+##### Tile state type definition:
+
+```typescript
+type BoardTileState = {
+  letter: string
+  guessingState: LetterGuessingState
+}
+```
+
 ### `diffWords`
 
-Compare words with Wordle game rules and return array with result every array item has one of this values:
+Compare words with Wordle game rules and return array with result. Every array item has one of this values:
 `'almost' | 'right' | 'wrong'`.
 
 #### Example:
