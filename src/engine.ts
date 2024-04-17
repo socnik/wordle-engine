@@ -7,7 +7,7 @@ import {
 import { position, type Position } from '@/position'
 import { diffWords, type LetterGuessingState } from '@/diffWords'
 
-class WordleEngine {
+export class WordleEngine {
   cursorPosition: Position
 
   constructor(
