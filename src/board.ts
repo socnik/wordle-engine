@@ -1,5 +1,6 @@
 import type { LetterGuessingState } from '@/diffWords'
 import { createArrayAndFill } from '@/utils'
+import type { Position } from './position'
 
 export type BoardTileState = {
   letter: string
@@ -17,4 +18,11 @@ export function defineBoard(width: number, height: number): BoardState {
       }
     })
   )
+}
+
+export function getBoardTile(
+  position: Position,
+  board: BoardState
+): BoardTileState {
+  return board[position.y][position.x]
 }
