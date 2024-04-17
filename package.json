@@ -59,7 +59,9 @@
     "prettier": "^3.2.5",
     "tsc-alias": "^1.8.8",
     "typescript": "^5.4.4",
-    "typescript-eslint": "^7.7.0"
+    "typescript-eslint": "^7.7.0",
+    "vite": "^5.2.9",
+    "vitest": "^1.5.0"
   },
   "dependencies": {
     "@socnik/randifyjs": "^0.0.2"
