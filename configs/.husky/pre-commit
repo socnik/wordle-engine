@@ -1,0 +1,1 @@
+pnpm exec concurrently "pnpm exec lint-staged" "pnpm check-types"

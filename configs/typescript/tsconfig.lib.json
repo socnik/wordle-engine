@@ -1,0 +1,16 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "include": ["../../src/**/*"],
+  "exclude": ["../../src/**/*.test.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "types": ["vite/client"],
+    "noEmit": true,
+    "tsBuildInfoFile": "../../node_modules/.cache/typescript/tsconfig.lib.tsbuildinfo",
+    "rootDir": "../..",
+    "baseUrl": "../..",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}

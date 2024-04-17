@@ -1,0 +1,64 @@
+{
+  "name": "@socnik/wordle-engine",
+  "version": "0.0.0",
+  "description": "Implementation of Wordle game engine with JavaScript",
+  "license": "MIT",
+  "scripts": {
+    "build": "concurrently \"pnpm build:code\" \"pnpm build:types\"",
+    "build:code": "vite build",
+    "build:types": "tsc -p ./configs/typescript/tsconfig.build.json && tsc-alias -p ./configs/typescript/tsconfig.build.json && dts-bundle-generator --project ./configs/typescript/tsconfig.build.json --out-file ./dist/index.d.ts ./.tmp/build/index.d.ts",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "check-types": "tsc",
+    "format": "prettier --write .",
+    "prepare": "husky ./configs/.husky"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "javascript",
+    "typescript"
+  ],
+  "author": {
+    "name": "Nikita"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/socnik/wordle-engine"
+  },
+  "homepage": "https://github.com/socnik/wordle-engine#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "private": true,
+  "type": "module",
+  "prettier": "@socnik/my-prettier-config",
+  "packageManager": "pnpm@8.10.5",
+  "devDependencies": {
+    "@socnik/my-prettier-config": "^1.0.0",
+    "@types/node": "^20.12.7",
+    "@vitest/ui": "^1.5.0",
+    "@vue/tsconfig": "^0.5.1",
+    "concurrently": "^8.2.2",
+    "dts-bundle-generator": "^9.4.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vitest": "^0.5.3",
+    "globals": "^15.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.4.4",
+    "typescript-eslint": "^7.7.0"
+  }
+}

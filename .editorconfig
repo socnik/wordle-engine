@@ -1,0 +1,15 @@
+root = true
+
+[*]
+# File settings
+charset = utf-8
+end_of_line = lf
+
+# Indents
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+# Stylistic
+trim_trailing_whitespace = true
+insert_final_newline = true

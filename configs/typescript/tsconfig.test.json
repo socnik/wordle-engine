@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.lib.json",
+  "exclude": [],
+  "compilerOptions": {
+    "tsBuildInfoFile": "../../node_modules/.cache/typescript/tsconfig.test.tsbuildinfo",
+    "types": ["vite/client", "vitest/globals"]
+  }
+}

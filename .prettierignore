@@ -1,0 +1,5 @@
+# Pnpm
+pnpm-lock.yaml
+
+# Vite artifacts
+dist
