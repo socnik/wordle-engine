@@ -8,13 +8,13 @@ import { position, type Position } from '@/position'
 import { diffWords, type LetterGuessingState } from '@/diffWords'
 
 export class WordleEngine {
-  cursorPosition: Position
+  _cursorPosition: Position
 
   constructor(
     public boardState: BoardState,
     public hiddenWord: string
   ) {
-    this.cursorPosition = position(0, 0)
+    this._cursorPosition = position(0, 0)
   }
 
   get boardWidth() {
@@ -23,6 +23,10 @@ export class WordleEngine {
 
   get boardHeight() {
     return this.boardState.length
+  }
+
+  get cursorPosition(): Position {
+    return position(this._cursorPosition)
   }
 
   getBoardTile(position: Position): BoardTileState {
@@ -34,25 +38,25 @@ export class WordleEngine {
       throw new Error('Letter should have length equal 1')
     }
 
-    if (this.cursorPosition.y === this.boardHeight) return
-    if (this.cursorPosition.x === this.boardWidth) return
+    if (this._cursorPosition.y === this.boardHeight) return
+    if (this._cursorPosition.x === this.boardWidth) return
 
-    this.getBoardTile(this.cursorPosition).letter = letter
+    this.getBoardTile(this._cursorPosition).letter = letter
 
-    this.cursorPosition.x++
+    this._cursorPosition.x++
   }
 
   removeLetter() {
-    if (this.cursorPosition.y === this.boardHeight) return
-    if (this.cursorPosition.x === 0) return
+    if (this._cursorPosition.y === this.boardHeight) return
+    if (this._cursorPosition.x === 0) return
 
-    this.cursorPosition.x--
+    this._cursorPosition.x--
 
-    this.getBoardTile(this.cursorPosition).letter = ''
+    this.getBoardTile(this._cursorPosition).letter = ''
   }
 
   pushWord(word: string) {
-    if (this.cursorPosition.y === this.boardHeight) return
+    if (this._cursorPosition.y === this.boardHeight) return
 
     if (word.length > this.boardWidth) {
       throw new Error('Word length greater than board width')
@@ -61,21 +65,21 @@ export class WordleEngine {
     for (const [index, letter] of Object.entries(word)) {
       this.getBoardTile({
         x: Number(index),
-        y: this.cursorPosition.y,
+        y: this._cursorPosition.y,
       }).letter = letter
     }
 
-    this.cursorPosition.x = this.boardWidth
+    this._cursorPosition.x = this.boardWidth
   }
 
   getWord(line?: number): string {
-    const row = this.boardState[line ?? this.cursorPosition.y]
+    const row = this.boardState[line ?? this._cursorPosition.y]
 
     return row.map((state) => state.letter).join('')
   }
 
   getDiffState(line: number): LetterGuessingState[] {
-    if (line >= this.cursorPosition.y) {
+    if (line >= this._cursorPosition.y) {
       throw new Error(
         'Cannot get diff, if line index equal or greater than cursor y'
       )
@@ -89,19 +93,19 @@ export class WordleEngine {
   enterWord() {
     const word = this.getWord()
 
-    if (this.cursorPosition.y === this.boardHeight) return
+    if (this._cursorPosition.y === this.boardHeight) return
 
     if (word.length !== this.boardWidth) return
 
     const diffResult = this.diffWithHiddenWord(word)
 
     for (const [index, state] of Object.entries(
-      this.boardState[this.cursorPosition.y]
+      this.boardState[this._cursorPosition.y]
     )) {
       state.guessingState = diffResult[Number(index)]
     }
 
-    this.cursorPosition.y++
+    this._cursorPosition.y++
   }
 
   diffWithHiddenWord(word: string): LetterGuessingState[] {
