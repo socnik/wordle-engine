@@ -173,5 +173,22 @@ describe('createEngine function', () => {
 
       expect(engine.cursorPosition.y).toBe(2)
     })
+
+    test('isWordEntered should return true, if word entered', () => {
+      const engine = createEngine({
+        height: 6,
+        width: 6,
+        hiddenWord: 'foobar',
+      })
+
+      engine.pushWord('qwerty')
+      engine.enterWord()
+      engine.pushWord('azerty')
+      engine.enterWord()
+
+      expect(engine.isWordEntered(0)).toBe(true)
+      expect(engine.isWordEntered(1)).toBe(true)
+      expect(engine.isWordEntered(2)).toBe(false)
+    })
   })
 })

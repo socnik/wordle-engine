@@ -74,6 +74,10 @@ export class WordleEngine {
     return row.map((state) => state.letter).join('')
   }
 
+  isWordEntered(line: number): boolean {
+    return !(line >= this._cursorPosition.y)
+  }
+
   getDiffState(line: number): LetterGuessingState[] {
     if (line >= this._cursorPosition.y) {
       throw new Error(
