@@ -1,9 +1,5 @@
-import {
-  defineBoard,
-  getBoardTile,
-  type BoardState,
-  type BoardTileState,
-} from '@/board'
+import { defineBoard, getBoardTile, type BoardState } from '@/board'
+import type { BoardTileState } from '@/boardTile'
 import { position, type Position } from '@/position'
 import { diffWords, type LetterGuessingState } from '@/diffWords'
 
