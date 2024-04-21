@@ -24,3 +24,9 @@ export function splitStringOnGroups(
 
   return groups
 }
+
+type IdentityFunc<T> = (value: T) => T
+
+export function defineIdentity<T>(): IdentityFunc<T> {
+  return (value: T) => value
+}
