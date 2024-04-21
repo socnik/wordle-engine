@@ -1,3 +1,5 @@
+import { defineIdentity } from '@/utils'
+
 export type ProcessorFunction = (value: string) => string
 
 export type StringProcessor = {
@@ -5,11 +7,7 @@ export type StringProcessor = {
   preprocessing: ProcessorFunction
 }
 
-export function defineStringProcessor(
-  processor: StringProcessor
-): StringProcessor {
-  return processor
-}
+export const defineStringProcessor = defineIdentity<StringProcessor>()
 
 export const stubStringProcessor = defineStringProcessor({
   postprocessing: (value) => value,
